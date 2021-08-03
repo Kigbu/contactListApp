@@ -11,6 +11,7 @@ drf-yasg = "*"
 packaging = "*"
 django-heroku = "*"
 gunicorn = "*"
+python-decouple = "*"
 
 [dev-packages]
 autopep8 = "*"
