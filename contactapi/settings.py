@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
+
 # import environ
 from decouple import config
-import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
     'environ',
     'authentication',
     'contacts',
@@ -71,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -140,6 +143,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CORS
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+]
+
 
 # JWT
 # JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', '')
@@ -149,8 +157,6 @@ JWT_SECRET_KEY = 'JWT_SECRET_KEY'
 
 JWT_SECRET_KEY = config('JWT_SECRET_KEY')
 
-
-django_heroku.settings(locals())
 
 # Static fil4es (CSS, JavaScript, Images)config
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -181,3 +187,5 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())

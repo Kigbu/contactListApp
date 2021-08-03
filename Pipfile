@@ -12,6 +12,7 @@ packaging = "*"
 django-heroku = "*"
 gunicorn = "*"
 python-decouple = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 autopep8 = "*"
