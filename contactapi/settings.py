@@ -14,6 +14,8 @@ from pathlib import Path
 # import os
 # import environ
 from decouple import config
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -147,6 +149,8 @@ JWT_SECRET_KEY = 'JWT_SECRET_KEY'
 
 JWT_SECRET_KEY = config('JWT_SECRET_KEY')
 
+
+django_heroku.settings(locals())
 
 # Static fil4es (CSS, JavaScript, Images)config
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
