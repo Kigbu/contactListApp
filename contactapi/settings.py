@@ -43,11 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drf_yasg2',
+    'drf_yasg',
     'environ',
     'authentication',
     'contacts',
-    'django-heroku',
 ]
 
 SWAGGER_SETTINGS = {
